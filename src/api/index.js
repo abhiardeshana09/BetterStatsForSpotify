@@ -24,3 +24,14 @@ export const getUser = (token) => axios({
         Authorization: `Bearer ${token}`
     } 
 });
+
+export const getTracks = (token, ids) => axios({
+    method: 'get',
+    url: `${apiUrl}/tracks`,
+    headers: {
+        Authorization: `Bearer ${token}`
+    },
+    params: {
+        ids: ids
+    }
+});

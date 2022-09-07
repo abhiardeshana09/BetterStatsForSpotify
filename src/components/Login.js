@@ -11,7 +11,10 @@ const Login = () => {
     });
 
     return (
-        <a href={url}>Login</a>
+        <div style={{ height: '90vh' }} className='d-flex flex-column justify-content-center align-items-center'>
+            <h1 style={{ marginBottom: '30px' }} className='display-2'>Better Stats for Spotify</h1>
+            <a href={url} className='btn btn-primary btn-lg'>Login with Spotify</a>
+        </div>
     )
 }
 

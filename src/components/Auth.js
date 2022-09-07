@@ -12,8 +12,9 @@ const Auth = () => {
         const params = qs.parse(window.location.search);
         if (params.code) {
             dispatch(loginUser(params.code));
+        } else {
+            navigate('/');
         }
-        navigate('/');
     }, []);
 
     return null;

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { getUser } from './actions';
 import Login from './components/Login';
 import Auth from './components/Auth';
+import Homepage from './components/Homepage';
 
 const App = () => {
     const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const App = () => {
             <Routes>
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/auth' element={<Auth/>}/>
+                <Route path='/' element={<Homepage/>}/>
             </Routes>
         </BrowserRouter>
     );
