@@ -1,21 +1,22 @@
 # Better Stats for Spotify
 
 ## Motivation
-There are many web-based utilities that use the Spotify Web API to display your "top songs" over various time ranges.
+There are many web-based utilities that use the Spotify Web API to display your "top songs" over various time ranges.\
 For example, here are my all-time top songs according to *Stats for Spotify*:
+
 ![StatsForSpotify](demo/StatsForSpotify.png)
 
-However, I have frequently found myself questioning the accuracy of these results. After all, the Spotify Web API is a black box - it is unclear how it determines what your "top songs" are.
-So, I decided to develop my own solution - one that used concrete user data to determine a user's most played tracks within any timeframe.
+However, I have frequently found myself questioning the accuracy of these results. After all, the Spotify Web API is a black box - it is unclear how it determines what your "top songs" are.\
+So, I decided to develop my own solution - one that used concrete user data to determine a user's most played tracks within any timeframe.\
 Here are my all-time top songs according to *Better Stats for Spotify*:
+
 ![BetterStatsForSpotify](demo/BetterStatsForSpotify.png)
 
 Somewhat similar, but definitely not the same.
 
 ## Summary
-Better Stats for Spotify allows users to login with their Spotify credentials and then upload their Spotify user data.
-Spotify user data can be obtained from the "Privacy settings" section of your Spotify account page.
-Then, the application uses the data to generate a list of the user's most played tracks. The list is displayed in table form, with cover art and artist names being retrieved using the Spotify Web API.
+Better Stats for Spotify allows users to login with their Spotify credentials and then upload their Spotify user data. Spotify user data can be obtained from the "Privacy settings" section of your Spotify account page.\
+Then, the application uses the data to generate a list of the user's most played tracks. The list is displayed in table form, with cover art and artist names being retrieved using the Spotify Web API.\
 Finally, users can change the scope of the results by entering a specific timeframe to analyze, and by setting a listening threshold (how long a track must be played for it to count).
 
 ## Demo
