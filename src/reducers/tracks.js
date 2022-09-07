@@ -26,10 +26,10 @@ const reducer = (tracks = {}, action) => {
             for (let string of tracks.files) {
                 for (let track of JSON.parse(string)) {
                     if (
-                        track.spotify_track_uri === null ||
-                        track.ms_played < parseInt(action.payload.threshold) * 1000 ||
-                        track.ts.slice(0, 10) < action.payload.startDate ||
-                        track.ts.slice(0, 10) > action.payload.endDate
+                        (track.spotify_track_uri === null) ||
+                        (action.payload.threshold && track.ms_played < parseInt(action.payload.threshold) * 1000) ||
+                        (action.payload.startDate && track.ts.slice(0, 10) < action.payload.startDate) ||
+                        (action.payload.endDate && track.ts.slice(0, 10) > action.payload.endDate)
                     ) continue;
                     if (URIToCountFiltered.has(track.spotify_track_uri)) {
                         URIToCountFiltered.set(track.spotify_track_uri, URIToCountFiltered.get(track.spotify_track_uri) + 1);

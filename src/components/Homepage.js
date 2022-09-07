@@ -18,17 +18,25 @@ const Homepage = () => {
 
     useEffect(() => {
         const getTrackInfo = async () => {
-            if (tracks.trackMap?.length) {
-                let ids = '';
-                for (let i = startingIndex; i < startingIndex + 50 && i < tracks.trackMap.length; i++) {
-                    if (i === startingIndex + 49 || i === tracks.trackMap.length - 1 ) {
-                        ids += tracks.trackMap[i][0].slice(14)
-                    } else {
-                        ids += `${tracks.trackMap[i][0].slice(14)},`
+            if (tracks.trackMap) {
+                if (tracks.trackMap.length) {
+                    let ids = '';
+                    for (let i = startingIndex; i < startingIndex + 50 && i < tracks.trackMap.length; i++) {
+                        if (i === startingIndex + 49 || i === tracks.trackMap.length - 1 ) {
+                            ids += tracks.trackMap[i][0].slice(14)
+                        } else {
+                            ids += `${tracks.trackMap[i][0].slice(14)},`
+                        }
                     }
+                    try {
+                        const { data } = await getTracks(cookies.get('token'), ids);
+                        setTrackInfo(data.tracks);
+                    } catch (error) {
+                        console.log(error);
+                    }
+                } else {
+                    setTrackInfo([]);
                 }
-                const { data } = await getTracks(cookies.get('token'), ids);
-                setTrackInfo(data.tracks);
             }
         }
         getTrackInfo();
@@ -84,7 +92,7 @@ const Homepage = () => {
     return (
         <>
             <Navbar/>
-            {trackInfo.length ? (
+            {tracks.trackMap ? (
                 <div className='container'>
                     <div className='row' style={{ marginTop: '50px', marginBottom: '50px' }}>
                         <div className='col'>
@@ -121,7 +129,7 @@ const Homepage = () => {
                                     <td>{track.name}</td>
                                     <td>{getArtistList(track.artists)}</td>
                                     <td>{track.album.name}</td>
-                                    <td>{tracks.trackMap[startingIndex + index][1]}</td>
+                                    <td>{tracks.trackMap.length ? tracks.trackMap[startingIndex + index][1] : null}</td>
                                 </tr>
                             ))}
                         </tbody>
