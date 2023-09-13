@@ -129,7 +129,7 @@ const Homepage = () => {
                                     <td>{track.name}</td>
                                     <td>{getArtistList(track.artists)}</td>
                                     <td>{track.album.name}</td>
-                                    <td>{tracks.trackMap.length ? tracks.trackMap[startingIndex + index][1] : null}</td>
+                                    <td>{tracks.trackMap.length && startingIndex + index < tracks.trackMap.length ? tracks.trackMap[startingIndex + index][1] : null}</td>
                                 </tr>
                             ))}
                         </tbody>
