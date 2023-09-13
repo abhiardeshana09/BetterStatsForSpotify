@@ -1,7 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutUser } from '../actions';
 
 const Navbar = () => {
+    const dispatch = useDispatch();
     const user = useSelector(state => state.user);
 
     return (
@@ -19,7 +21,7 @@ const Navbar = () => {
                                 <span>{user && user.display_name}</span>
                             </span>
                             <ul className='dropdown-menu'>
-                                <li><span className='dropdown-item'>Logout</span></li>
+                                <li><span onClick={() => dispatch(logoutUser())} className='dropdown-item'>Logout</span></li>
                             </ul>
                         </li>
                     </ul>

@@ -35,6 +35,7 @@ export const getUser = () => async (dispatch, getState) => {
 
 export const logoutUser = () => {
     cookies.remove('token');
+    window.location = '/login';
     return { type: LOGOUT_USER }
 }
 
